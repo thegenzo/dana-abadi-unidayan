@@ -61,6 +61,8 @@
         </div>
     </div>
 	@include('web.include.navbar')
+
+    @yield('banner')
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
@@ -91,6 +93,10 @@
     <script src="{{ asset('web-assets/vendors/gsap/gsap.js') }}"></script>
     <script src="{{ asset('web-assets/vendors/gsap/customEase.js') }}"></script>
     <script src="{{ asset('web-assets/assets/js/theme.js') }}"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
 
     @stack('addon-script')
 </body>
