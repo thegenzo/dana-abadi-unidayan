@@ -37771,7 +37771,7 @@ html[dir="rtl"] .welcome-bg-img {
     color: #000;
 }
 .sidebar-nav ul .sidebar-item.selected .sidebar-link.has-arrow::after {
-    border-color: #fff;
+    border-color: #000;
 }
 .sidebar-nav .sidebar-list .sidebar-list-item {
     padding: 8px 0;
@@ -37810,7 +37810,7 @@ html[dir="rtl"] .welcome-bg-img {
 .sidebar-nav li > .has-arrow.active::after {
     top: 18px;
     margin-top: 1px;
-    border-color: #fff;
+    border-color: #000;
     -webkit-transform: rotate(-135deg) translate(0, -50%);
     -ms-transform: rotate(-135deg) translate(0, -50%);
     -o-transform: rotate(-135deg) translate(0, -50%);
