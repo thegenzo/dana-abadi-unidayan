@@ -16,6 +16,8 @@ class UsersTableSeeder extends Seeder
         $user = new User();
         $user->name = "Administrator";
         $user->email = "admin@gmail.com";
+        $user->level = "admin";
+        $user->avatar = "https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png";
         $user->password = bcrypt("admin123");
         $user->save();
     }
