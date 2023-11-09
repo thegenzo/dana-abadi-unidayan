@@ -1,6 +1,6 @@
 @extends('admin-panel.layout.app')
 
-@section('title', 'Data Kriteria')
+ @section('title', 'Data Fakultas')
 
 @push('addon-style')
 	<!-- Datatable -->
@@ -14,17 +14,17 @@
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Data Kriteria</h4>
+                        <h4 class="fw-semibold mb-8">Data Fakultas</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-muted" href="{{ route('admin-panel.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item" aria-current="page">Data Kriteria</li>
+                                <li class="breadcrumb-item" aria-current="page">Data Fakultas</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-3">
                         <div class="text-center">
-                            <img src="{{ asset('panel-assets/dist/images/breadcrumb/criteria.png') }}" alt=""
+                            <img src="{{ asset('panel-assets/dist/images/breadcrumb/faculty.png') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -36,31 +36,31 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
-							<a href="{{ route('admin-panel.criteria.create') }}" class="btn btn-secondary mb-3">Tambah Kriteria</a>
+							<a href="{{ route('admin-panel.faculties.create') }}" class="btn btn-secondary mb-3">Tambah Fakultas</a>
 							<div class="table-responsive">
 								<table id="dataTable" class="table border table-striped table-bordered display nowrap" style="width: 100%">
 									<thead>
 										<tr>
 											<th class="text-center">No</th>
-											<th>Nama Kriteria</th>
+											<th>Nama Fakultas</th>
 											<th class="text-center">Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										@foreach ($criterias as $criteria)
+										@foreach ($faculties as $faculty)
 											<tr>
 												<td class="text-center">{{ $loop->iteration }}</td>
-												<td>{{ $criteria->name }}</td>
+												<td>{{ $faculty->faculty_name }}</td>
 												<td class="text-center">
-													<a href="{{ route('admin-panel.criteria.edit', $criteria->id) }} " class="btn btn-sm btn-warning"
+													<a href="{{ route('admin-panel.faculties.edit', $faculty->id) }} " class="btn btn-sm btn-warning"
                                                         data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="fa fa-pencil-alt"></i>
                                                     </a>
-                                                    <form action="{{ route('admin-panel.criteria.destroy', $criteria->id) }}" method="POST" class="d-inline swal-confirm">
+                                                    <form action="{{ route('admin-panel.faculties.destroy', $faculty->id) }}" method="POST" class="d-inline swal-confirm">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="btn btn-sm btn-danger" type="submit"
-                                                            data-id="{{ $criteria->id }}">
+                                                            data-id="{{ $faculty->id }}">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
                                                     </form>
@@ -91,8 +91,8 @@
 			var id = $(this).data("id");
 			event.preventDefault();
 			Swal.fire({
-				title: 'Yakin Hapus Kriteria?',
-				text: "Kriteria yang terhapus tidak dapat dikembalikan",
+				title: 'Yakin Hapus Fakultas?',
+				text: "Fakultas yang terhapus tidak dapat dikembalikan",
 				icon: 'warning',
 				showCancelButton: true,
 				confirmButtonColor: '#3085d6',

@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--  Favicon -->
     <link rel="shortcut icon" type="image/png"
-        href="{{ asset('panel-assets/dist/images/logo-primary.ico') }}" />
+        href="{{ asset('favicon.ico') }}" />
 
     @include('admin-panel.include.style')
 

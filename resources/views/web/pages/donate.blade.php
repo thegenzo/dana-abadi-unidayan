@@ -19,7 +19,7 @@
         }
 
         #donate input:checked+span {
-            background-color: #da366b;
+            background-color: #002147;
             border: none;
             border-radius: 0.25rem;
             color: #F7F7F7;
@@ -300,7 +300,7 @@
         $('#public').hide();
         $('select#status').change(function() {
             var value = $(this).val();
-            if (value == '0') {
+            if (value == '') {
                 $('#faculty').hide();
                 $('#work_unit').hide();
                 $('#public').hide();
@@ -317,7 +317,7 @@
                 $('#work_unit').hide();
                 $('#public').show();
             } else {
-                $('#fakultas').hide();
+                $('#faculty').hide();
                 $('#work_unit').hide();
                 $('#public').hide();
             }

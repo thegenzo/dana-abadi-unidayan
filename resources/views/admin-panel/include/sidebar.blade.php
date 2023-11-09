@@ -4,8 +4,7 @@
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-center">
             <a href="#" class="text-nowrap logo-img">
-                <img src="{{ asset('panel-assets/dist/images/logo-primary.png') }}" class="dark-logo rounded"
-                    width="38" alt="" />
+                <img src="https://unidayan.ac.id/img/logo-primary.png" class="dark-logo rounded" />
                 {{-- <img src="{{ asset('panel-assets/dist/images/logo-primary.png') }}"
 					class="light-logo rounded" width="38" alt="" /> --}}
             </a>
@@ -21,7 +20,7 @@
                 <!-- ============================= -->
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">Home</span>
+                    <span class="hide-menu text-white">Home</span>
                 </li>
                 <!-- =================== -->
                 <!-- Dashboard -->
@@ -44,6 +43,40 @@
                         </a>
                     </li>
                 @endif
+                <li class="sidebar-item {{ Route::is('admin-panel.faculties.*') || Route::is('admin-panel.work-unit.*') || Route::is('admin-panel.allotments.*') ? 'selected' : '' }}">
+                    <a class="sidebar-link has-arrow {{ Route::is('admin-panel.faculties.*') || Route::is('admin-panel.work-unit.*') || Route::is('admin-panel.allotments.*') ? 'active' : '' }}" href="#" aria-expanded="false">
+                        <span class="d-flex">
+                            <i class="ti ti-archive-filled"></i>
+                        </span>
+                        <span class="hide-menu">Master Data</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item {{ Route::is('admin-panel.faculties.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin-panel.faculties.index') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Fakultas</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item {{ Route::is('admin-panel.work-units.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin-panel.work-units.index') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Unit Kerja</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item {{ Route::is('admin-panel.allotments.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin-panel.allotments.index') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Penempatan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 {{-- <li class="sidebar-item {{ Route::is('admin-panel.criteria.*') ? 'selected' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin-panel.criteria.index') }}" aria-expanded="false">
                         <span>

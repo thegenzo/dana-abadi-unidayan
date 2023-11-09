@@ -11,7 +11,7 @@ $auth = [
             <li class="nav-item">
                 <a class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse"
                     href="javascript:void(0)">
-                    <i class="ti ti-menu-2 text-white"></i>
+                    <i class="ti ti-menu-2"></i>
                 </a>
             </li>
         </ul>
@@ -25,7 +25,7 @@ $auth = [
             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="p-2">
-                <i class="ti ti-dots fs-7 text-white"></i>
+                <i class="ti ti-dots fs-7"></i>
             </span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">

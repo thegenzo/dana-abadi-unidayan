@@ -1,27 +1,27 @@
 @extends('admin-panel.layout.app')
 
-@section('title', 'Edit Data Kriteria')
+@section('title', 'Tambah Data Unit Kerja')
 
 @section('content')
     <div class="container-fluid">
-        <div class="card bg-light-warning shadow-none position-relative overflow-hidden">
+        <div class="card bg-light-secondary shadow-none position-relative overflow-hidden">
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Edit Data Kriteria</h4>
+                        <h4 class="fw-semibold mb-8">Tambah Data Unit Kerja</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-muted"
                                         href="{{ route('admin-panel.dashboard') }}">Dashboard</a></li>
                                 <li class="breadcrumb-item"><a class="text-muted"
-                                        href="{{ route('admin-panel.criteria.index') }}">Data Kriteria</a></li>
-                                <li class="breadcrumb-item" aria-current="page">Edit Data Kriteria</li>
+                                        href="{{ route('admin-panel.work-units.index') }}">Data Unit Kerja</a></li>
+                                <li class="breadcrumb-item" aria-current="page">Tambah Data Unit Kerja</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-3">
                         <div class="text-center">
-                            <img src="{{ asset('panel-assets/dist/images/breadcrumb/criteria.png') }}" alt=""
+                            <img src="{{ asset('panel-assets/dist/images/breadcrumb/work-unit.png') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -32,7 +32,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header bg-warning">
-                        <h4 class="mb-0 text-white card-title">Edit Data Kriteria Disini</h4>
+                        <h4 class="mb-0 text-white card-title">Masukkan Data Unit Kerja Disini</h4>
                     </div>
                     <div class="card-body">
                         @if (count($errors) > 0)
@@ -47,16 +47,15 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('admin-panel.criteria.update', $criteria->id) }}">
+                        <form method="POST" action="{{ route('admin-panel.work-units.store') }}">
                             @csrf
-							@method('PUT')
                             <div class="form-group mb-3">
-                                <label for="name">Nama Kriteria <span class="text-danger">*</span></label>
-                                <input type="text" name="name" id="name" class="form-control"
-                                    value="{{ $criteria->name }}">
-						</div>
+                                <label for="unit_name">Nama Unit Kerja <span class="text-danger">*</span></label>
+                                <input type="text" name="unit_name" id="unit_name" class="form-control"
+                                    value="{{ old('unit_name') }}">
+                            </div>
                             <button type="submit" class="btn btn-success">Simpan</button>
-                            <a href="{{ route('admin-panel.criteria.index') }}" class="btn btn-warning mx-2">Kembali</a>
+                            <a href="{{ route('admin-panel.work-units.index') }}" class="btn btn-warning mx-2">Kembali</a>
                         </form>
                     </div>
                 </div>

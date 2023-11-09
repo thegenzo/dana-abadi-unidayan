@@ -21447,7 +21447,7 @@ fieldset:disabled .btn {
 }
 .nav-link:focus,
 .nav-link:hover {
-    color: var(--bs-nav-link-hover-color);
+    color: #000;
 }
 .nav-link:focus-visible {
     outline: 0;
@@ -37406,7 +37406,7 @@ html[dir="rtl"] .welcome-bg-img {
     position: relative;
     z-index: 50;
     width: 100%;
-    background: #328160;
+    background: #fdd428;
     padding: 0 25px;
 }
 .app-header .container-fluid,
@@ -37637,7 +37637,7 @@ html[dir="rtl"] .welcome-bg-img {
 }
 .left-sidebar {
     width: 270px;
-    background-color: #fad54d;
+    background-color: #002147;
     position: absolute;
     transition: 0.2s ease-in;
     height: 100%;
@@ -37655,6 +37655,7 @@ html[dir="rtl"] .welcome-bg-img {
 .brand-logo {
     min-height: 70px;
     padding: 0 24px;
+    background: #fff;
 }
 .unlimited-access {
     padding: 18px 22px 25px;
@@ -37668,7 +37669,6 @@ html[dir="rtl"] .welcome-bg-img {
 }
 .nav-small-cap {
     margin-top: 24px;
-    color: #2a3547;
     font-size: 12px;
     font-weight: 700;
     padding: 3px 12px;
@@ -37679,7 +37679,7 @@ html[dir="rtl"] .welcome-bg-img {
     display: none;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link {
-    color: #2a3547;
+    color: #fff;
     display: flex;
     font-size: 14px;
     white-space: nowrap;
@@ -37701,11 +37701,11 @@ html[dir="rtl"] .welcome-bg-img {
     font-size: 21px;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link:hover {
-    background-color: rgba(230, 239, 235, 0.7);
+    background-color: #FDDC52;
     color: #000;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link:hover.has-arrow::after {
-    border-color: #000;
+    border-color: #FDDC52;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link.active:hover.has-arrow::after {
     border-color: #fff;
@@ -37719,7 +37719,7 @@ html[dir="rtl"] .welcome-bg-img {
 }
 .sidebar-nav ul .sidebar-item .first-level .sidebar-item .sidebar-link:hover {
     background-color: transparent;
-    color: #000;
+    color: #FDDC52;
 }
 .sidebar-nav
     ul
@@ -37756,7 +37756,7 @@ html[dir="rtl"] .welcome-bg-img {
 }
 .sidebar-nav ul .sidebar-item .first-level .sidebar-item .sidebar-link.active {
     background-color: transparent !important;
-    color: #fff !important;
+    color: #FDDC52;
 }
 .sidebar-nav ul .sidebar-item .two-level .sidebar-item .sidebar-link {
     padding: 8px 10px 8px 45px;
@@ -37767,8 +37767,8 @@ html[dir="rtl"] .welcome-bg-img {
 .sidebar-nav ul .sidebar-item.selected > .sidebar-link,
 .sidebar-nav ul .sidebar-item.selected > .sidebar-link.active,
 .sidebar-nav ul .sidebar-item > .sidebar-link.active {
-    background-color: #006239;
-    color: #fff;
+    background-color: #fdd428;
+    color: #000;
 }
 .sidebar-nav ul .sidebar-item.selected .sidebar-link.has-arrow::after {
     border-color: #fff;
@@ -37789,7 +37789,7 @@ html[dir="rtl"] .welcome-bg-img {
     height: 7px;
     border-width: 1px 0 0 1px;
     border-style: solid;
-    border-color: #2a3547;
+    border-color: #fff;
     margin-left: 10px;
     -webkit-transform: rotate(135deg) translate(0, -50%);
     -ms-transform: rotate(135deg) translate(0, -50%);
