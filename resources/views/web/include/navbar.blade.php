@@ -9,23 +9,23 @@
 			<div class="collapse navbar-collapse" id="primaryNavbarCollapse">
 				<ul class="navbar-nav py-3 py-lg-0 mt-1 mb-2 my-lg-0 ms-lg-n1">
 					<li class="nav-item dropdown"><a class="nav-link"
-						href="https://prium.github.io/elixir/v3.0.0/contact.html" role="button">Beranda</a>
+						href="{{ route('web.home') }}" role="button">Beranda</a>
 					</li>
 					<li class="nav-item dropdown"><a class="nav-link"
-						href="https://prium.github.io/elixir/v3.0.0/contact.html" role="button">Dana Abadi</a>
+						href="{{ route('web.endowment') }}" role="button">Dana Abadi</a>
 					</li>
 					<li class="nav-item dropdown"><a class="nav-link"
-						href="https://prium.github.io/elixir/v3.0.0/contact.html" role="button">Laporan Keuangan</a>
+						href="#" role="button">Laporan Keuangan</a>
 					</li>
 					<li class="nav-item dropdown"><a class="nav-link"
-						href="https://prium.github.io/elixir/v3.0.0/contact.html" role="button">Berita</a>
+						href="{{ route('web.news') }}" role="button">Berita</a>
 					</li>
 				</ul>
 				<a class="btn btn-secondary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0"
-					href="https://themewagon.com/themes/elixir/" target="_blank">Cara Donasi
+					href="{{ route('web.how-to-donate') }}">Cara Donasi
 				</a>
 				<a class="btn btn-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-3 my-3 my-lg-0"
-					href="https://themewagon.com/themes/elixir/" target="_blank">Donasi
+					href="{{ route('web.donate') }}">Donasi
 				</a>
 			</div>
 		</nav>

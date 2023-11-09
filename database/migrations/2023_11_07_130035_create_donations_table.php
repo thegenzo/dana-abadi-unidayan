@@ -18,12 +18,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
+            $table->string('phone');
+            $table->string('city');
             $table->enum('status', ['student', 'lecturer', 'alumni', 'public']);
             $table->foreignIdFor(Faculty::class)->nullable()->constrained()->default(null);
             $table->foreignIdFor(WorkUnit::class)->nullable()->constrained()->default(null);
             $table->foreignIdFor(Allotment::class)->nullable()->constrained()->default(null);
             $table->longText('address');
-            $table->string('donation_target');
             $table->longText('message')->nullable();
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('donation_nominals', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Donation::class)->constrained();
-            $table->integer('total');
+            $table->integer('amount');
             $table->string('method');
             $table->enum('status', ['pending', 'success', 'failed']);
             $table->timestamps();
