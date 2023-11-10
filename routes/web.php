@@ -4,6 +4,7 @@ use App\Http\Controllers\AllotmentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Web\WebController;
@@ -51,6 +52,12 @@ Route::middleware('auth')->group(function () {
         Route::resource('work-units', WorkUnitController::class, ['as'=> 'admin-panel']);
         Route::resource('allotments', AllotmentController::class, ['as' => 'admin-panel']);
         Route::resource('news', NewsController::class, ['as' => 'admin-panel']);
+
+        Route::controller(PageController::class)->group(function () {
+            Route::get('/endowment', 'endowment')->name('admin-panel.endowment');
+            Route::get('/how-to-donate', 'how_to_donate')->name('admin-panel.how-to-donate');
+            Route::put('/page/update/{id}', 'update')->name('admin-panel.page.update');
+        });
     });
 
 

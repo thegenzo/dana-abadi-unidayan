@@ -77,6 +77,32 @@
                         </li>
                     </ul>
                 </li>
+                <li class="sidebar-item {{ Route::is('admin-panel.endowment') || Route::is('admin-panel.how-to-donate') ? 'selected' : '' }}">
+                    <a class="sidebar-link has-arrow {{ Route::is('admin-panel.endowment') || Route::is('admin-panel.how-to-donate') ? 'active' : '' }}" href="#" aria-expanded="false">
+                        <span class="d-flex">
+                            <i class="ti ti-clipboard"></i>
+                        </span>
+                        <span class="hide-menu">Halaman</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item {{ Route::is('admin-panel.endowment') ? 'active' : '' }}">
+                            <a href="{{ route('admin-panel.endowment') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Dana Abadi</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item {{ Route::is('admin-panel.how-to-donate') ? 'active' : '' }}">
+                            <a href="{{ route('admin-panel.how-to-donate') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Cara Donasi</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="sidebar-item {{ Route::is('admin-panel.news.*') ? 'selected' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin-panel.news.index') }}" aria-expanded="false">
                         <span>

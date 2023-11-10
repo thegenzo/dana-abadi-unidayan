@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -29,12 +30,16 @@ class WebController extends Controller
 
     public function endowment()
     {
-        return view("web.pages.endowment");
+        $page = Page::where('name', 'Dana Abadi')->first();
+        
+        return view("web.pages.endowment", compact("page"));
     }
 
     public function how_to_donate()
     {
-        return view("web.pages.how-to-donate");
+        $page = Page::where('name', 'Cara Donasi')->first();
+        
+        return view("web.pages.how-to-donate", compact("page"));
     }
 
     public function donate()
