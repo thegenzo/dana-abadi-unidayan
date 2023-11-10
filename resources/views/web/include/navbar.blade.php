@@ -1,7 +1,7 @@
 <div class="sticky-top navbar-elixir">
 	<div class="container">
 		<nav class="navbar navbar-expand-lg"> <a class="navbar-brand"
-				href="#"><img src="https://unidayan.ac.id/img/logo-primary.png"
+				href="#"><img src="{{ asset('logo-primary.png') }}"
 					alt="logo" /></a><button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse"
 				data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false"
 				aria-label="Toggle navigation"><span class="hamburger hamburger--emphatic"><span

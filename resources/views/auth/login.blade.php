@@ -33,8 +33,7 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="/" class="text-nowrap logo-img text-center d-block mb-5 w-100">
-                                    <img src="{{ asset('panel-assets/dist/images/logo-primary.png') }}"
-                                        width="90" class="rounded" alt="">
+                                    <img src="{{ asset('logo-primary.png') }}" alt="">
                                 </a>
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
@@ -46,7 +45,7 @@
                                         <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                                         <input type="password" name="password" class="form-control" id="password">
                                     </div>
-                                    <button type="submit" class="btn btn-success w-100 py-8 mb-4 rounded-2">Sign In</button>
+                                    <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign In</button>
                                 </form>
                             </div>
                         </div>

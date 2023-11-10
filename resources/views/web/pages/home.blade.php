@@ -41,7 +41,7 @@
                             </div>
         
                             <div class="sum-text">
-                                <h4 class="title">Donation collected total</h4>
+                                <h4 class="title">Total Donasi Terkumpul</h4>
                                 <h5 class="count">                                    
                                     Rp.54.221.241.467,00
                                 </h5>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="overflow-hidden">
                         <div data-zanim-xs='{"delay":0.7}'>
-                            <a class="btn btn-warning mt-3" href="https://prium.github.io/elixir/v3.0.0/contact.html">
+                            <a class="btn btn-warning mt-3" href="{{ route('web.donate') }}">
                                 Donasi Sekarang<span lass="fas fa-chevron-right ms-2"></span>
                             </a>
                         </div>

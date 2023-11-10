@@ -4,7 +4,7 @@
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-center">
             <a href="#" class="text-nowrap logo-img">
-                <img src="https://unidayan.ac.id/img/logo-primary.png" class="dark-logo rounded" />
+                <img src="{{ asset('logo-primary.png') }}" class="dark-logo rounded" />
                 {{-- <img src="{{ asset('panel-assets/dist/images/logo-primary.png') }}"
 					class="light-logo rounded" width="38" alt="" /> --}}
             </a>
@@ -76,6 +76,14 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="sidebar-item {{ Route::is('admin-panel.news.*') ? 'selected' : '' }}">
+                    <a class="sidebar-link" href="{{ route('admin-panel.news.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-news"></i>
+                        </span>
+                        <span class="hide-menu">Berita</span>
+                    </a>
                 </li>
                 {{-- <li class="sidebar-item {{ Route::is('admin-panel.criteria.*') ? 'selected' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin-panel.criteria.index') }}" aria-expanded="false">
