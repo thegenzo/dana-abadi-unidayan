@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -14,12 +15,16 @@ class WebController extends Controller
 
     public function news()
     {
-        return view("web.pages.news");
+        $latestNews = News::where('status', 'published')->latest()->paginate(6);
+
+        return view("web.pages.news", compact("latestNews"));
     }
 
-    public function news_detail()
+    public function news_detail($id)
     {
-        return view("web.pages.news-detail");
+        $news = News::findOrFail($id);
+
+        return view("web.pages.news-detail", compact("news"));
     }
 
     public function endowment()
