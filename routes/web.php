@@ -25,10 +25,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::controller(WebController::class)->group(function () {
     Route::get('/', 'index')->name('web.home');
     Route::get('/dana-abadi', 'endowment')->name('web.endowment');
