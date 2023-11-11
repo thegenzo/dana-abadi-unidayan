@@ -66,6 +66,7 @@
                     <h2 class="text-center">Tidak ada berita terkini</h2>
                 </div>
                 @endforelse
+                {{ $latestNews->links() }}
             </div>
         </div><!-- end of .container-->
     </section><!-- <section> close ============================-->

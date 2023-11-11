@@ -33,23 +33,6 @@
             font-weight: 900;
         }
 
-        .input-icon {
-            position: relative;
-        }
-
-        .input-icon>span {
-            position: absolute;
-            display: block;
-            transform: translate(0, -50%);
-            top: 49%;
-            pointer-events: none;
-            width: 42px;
-            text-align: center;
-            font-style: normal;
-            font-weight: 900;
-            color: #495057;
-        }
-
         .autocomplete {
             /*the container must be positioned relative:*/
             position: relative;
@@ -168,20 +151,28 @@
                 </div>
                 <div class="col-lg-8 col-md-12 col-sm-12">
                     <div class="bg-white px-3 mt-6 px-0 py-5 px-lg-5 rounded-3">
-                        <form action="" id="donationForm" name="donationForm" method="POST">
+                        <form action="{{ route('web.donation') }}" id="donationForm" name="donationForm" method="POST">
                             @csrf
                             <div id="donate">
-                                <label class="normal"><input id="rdo_0" type="radio" value="10000" name="price"
-                                        onclick="DisplayPrice(this.value);"><span>10.000</span></label>
-                                <label class="normal"><input id="rdo_1" type="radio" value="25000" name="price"
-                                        onclick="DisplayPrice(this.value);"><span>25.000</span></label>
-                                <label class="normal"><input id="rdo_2" type="radio" value="100000" name="price"
-                                        onclick="DisplayPrice(this.value);"><span>100.000</span></label>
-                                <label class="normal"><input id="rdo_3" type="radio" value="500000" name="price"
-                                        onclick="DisplayPrice(this.value);"><span>500.000</span></label>
+                                <label class="normal">
+                                    <input id="rdo_0" type="radio" value="10000" name="price" onclick="DisplayPrice(this.value);" {{ old('amount') == 10000 ? 'checked' : '' }}>
+                                    <span>10.000</span>
+                                </label>
+                                <label class="normal">
+                                    <input id="rdo_1" type="radio" value="25000" name="price" onclick="DisplayPrice(this.value);" {{ old('amount') == 25000 ? 'checked' : '' }}>
+                                    <span>25.000</span>
+                                </label>
+                                <label class="normal">
+                                    <input id="rdo_2" type="radio" value="100000" name="price" onclick="DisplayPrice(this.value);" {{ old('amount') == 100000 ? 'checked' : '' }}>
+                                    <span>100.000</span>
+                                </label>
+                                <label class="normal">
+                                    <input id="rdo_3" type="radio" value="500000" name="price" onclick="DisplayPrice(this.value);" {{ old('amount') == 500000 ? 'checked' : '' }}>
+                                    <span>500.000</span>
+                                </label>
                                 <!--label class="normal"><input id="rdo_4" type="radio" value="2500000" name="price" onclick="DisplayPrice(this.value);"><span>2.500.000</span></label-->
                             </div>
-                            <div class="form-group input-icon" style="margin-bottom:0">
+                            <div class="form-group input-icon">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Rp. </span>
@@ -190,63 +181,86 @@
                                         class="form-control" type="text" min="1" id="amount" name="amount"
                                         placeholder="Nominal donasi lainnya"
                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                        value="{{ old('amount') }}"
                                         required="">
                                 </div>
+                                @if ($errors->has('amount'))
+                                    <span class="text-danger">{{ $errors->first('amount') }}</span>
+                                @endif
                             </div>
-							<p>Minimal Donasi Rp. 10.000,-</p>
+							<span class="text-muted">Minimal Donasi Rp. 10.000</span>
 
                             <div class="form-group mt-3">
                                 <label for="name">Nama <span class="text-danger">*</span></label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Nama"
-                                    required>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Nama" value="{{ old('name') }}" required>
+                                @if ($errors->has('name'))
+                                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @endif
                             </div>
                             <div class="form-group mt-3">
                                 <label for="name">Email <span class="text-danger">*</span></label>
-                                <input type="email" name="email" id="name" class="form-control" placeholder="Email"
-                                    required>
+                                <input type="email" name="email" id="name" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
+                                @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
                             <div class="form-group mt-3">
-                                <label for="name">Nomor Handphone <span class="text-danger">*</span></label>
-                                <input type="number" name="phone" id="name" class="form-control"
-                                    placeholder="Nomor Handphone" required>
+                                <label for="phone">Nomor Handphone <span class="text-danger">*</span></label>
+                                <input type="number" name="phone" id="phone" class="form-control" placeholder="Nomor Handphone" value="{{ old('phone') }}" required>
+                                @if ($errors->has('phone'))
+                                    <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                @endif
                             </div>
                             <div class="form-group ui-widget autocomplete mt-3">
                                 <label for="city">Kota/ Kabupaten <span class="text-danger">*</span></label>
-                                <input autocomplete="off" class="form-control" id="city" name="city"
-                                    placeholder="Alamat Kota/Kabupaten" required>
+                                <input autocomplete="off" class="form-control" id="city" name="city" placeholder="Alamat Kota/Kabupaten" value="{{ old('city') }}" required>
+                                @if ($errors->has('phone'))
+                                    <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                @endif                          
                             </div>
                             <div class="form-group mt-3">
                                 <label for="name">Status <span class="text-danger">*</span></label>
                                 <select name="status" id="status" class="form-select">
 									<option value="" selected hidden>--- Pilih Status ---</option>
-                                    <option value="student">Mahasiswa/i UNIDAYAN</option>
-                                    <option value="lecturer">Dosen/Tendik</option>
-                                    <option value="alumni">Alumni</option>
-                                    <option value="public">Masyarakat Umum</option>
+                                    <option value="student" {{ old('status') == 'student' ? 'selected' : '' }}>Mahasiswa/i UNIDAYAN</option>
+                                    <option value="lecturer" {{ old('status') == 'lecturer' ? 'selected' : '' }}>Dosen/Tendik</option>
+                                    <option value="alumni" {{ old('status') == 'alumni' ? 'selected' : '' }}>Alumni</option>
+                                    <option value="public" {{ old('status') == 'public' ? 'selected' : '' }}>Masyarakat Umum</option>
                                 </select>
+                                @if ($errors->has('status'))
+                                    <span class="text-danger">{{ $errors->first('status') }}</span>
+                                @endif
                             </div>
 							<div class="form-group mt-3" id="faculty">
                                 <label for="name">Fakultas <span class="text-danger">*</span></label>
                                 <select name="faculty_id" class="form-select">
-                                    <option value="fatek">Fakultas Teknik</option>
-                                    <option value="fkip">Fakultas Keguruan dan Ilmu Pendidikan</option>
+                                    <option value="" selected hidden>--- Pilih Fakultas ---</option>
+                                    @foreach (\App\Models\Faculty::all() as $faculty)
+                                    <option value="{{ $faculty->id }}" {{ old('faculty_id') == $faculty->id ? 'selected' : '' }}>{{ $faculty->faculty_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 							<div class="form-group mt-3" id="work_unit">
                                 <label for="name">Unit Kerja <span class="text-danger">*</span></label>
                                 <select name="work_unit_id" class="form-select">
-                                    <option value="upt">UPT TI</option>
+                                    <option value="" selected hidden>--- Pilih Unit Kerja ---</option>
+                                    @foreach (\App\Models\WorkUnit::all() as $unit)
+                                    <option value="{{ $unit->id }}" {{ old('work_unit_id') == $unit->id ? 'selected' : '' }}>{{ $unit->unit_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 							<div class="form-group mt-3" id="public">
-                                <label for="name"><span class="text-success">Silahkan pilih peruntukan untuk universitas atau fakultas tertentu</span> <span class="text-danger">*</span></label>
-                                <select name="work_unit_id" class="form-select">
-                                    <option value="upt">UPT TI</option>
+                                <label for="allotment_id"><span class="text-success">Silahkan pilih peruntukan untuk universitas atau fakultas tertentu</span> <span class="text-danger">*</span></label>
+                                <select name="allotment_id" class="form-select">
+                                    <option value="" selected hidden>--- Pilih Penempatan ---</option>
+                                    @foreach (\App\Models\Allotment::all() as $allotment)
+                                    <option value="{{ $allotment->id }}" {{ old('allotment_id') == $allotment->id ? 'selected' : '' }}>{{ $allotment->allotment_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 							<div class="form-group mt-3">
 								<label for="message">Pesan (opsional)</label>
-								<textarea name="message" id="message" cols="10" rows="10" class="form-control"></textarea>
+								<textarea name="message" id="message" cols="10" rows="10" class="form-control">{{ old('message') }}</textarea>
 							</div>
 							<button type="submit" class="btn btn-success mt-3">Donasi</button>
                         </form>
@@ -271,11 +285,9 @@
                 }
             }
 
-
             var sum = parseInt(val1);
             document.getElementById('amount').value = sum;
         }
-        
         
         function formatRupiah(angka, prefix) {
         	var number_string = angka.replace(/[^,\d]/g, "").toString(),
@@ -305,17 +317,17 @@
                 $('#work_unit').hide();
                 $('#public').hide();
             } else if (value == 'student' || value == 'alumni') {
-                $('#faculty').show();
+                $('#faculty').show().prop('required', true);
                 $('#work_unit').hide();
                 $('#public').hide();
             } else if (value == 'lecturer') {
+                $('#work_unit').show().prop('required', true);
                 $('#faculty').hide();
-                $('#work_unit').show();
                 $('#public').hide();
             } else if (value == 'public') {
+                $('#public').show().prop('required', true);
                 $('#faculty').hide();
                 $('#work_unit').hide();
-                $('#public').show();
             } else {
                 $('#faculty').hide();
                 $('#work_unit').hide();

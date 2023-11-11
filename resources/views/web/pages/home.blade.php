@@ -26,11 +26,11 @@
     <!-- ============================================-->
     <!-- <section> begin ============================-->
     <section class="py-0" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-        <div class="bg-holder" style="background-image:url({{ url('web-assets/assets/img/header-5.jpg') }});"></div>
+        <div class="bg-holder" style="background-image:url({{ url('web-assets/home.jpg') }});"></div>
         <!--/.bg-holder-->
         <div class="container">
             <div class="row min-vh-100 py-8 align-items-center" data-inertia='{"weight":1.5}'>
-                <div class="col-sm-8 col-lg-7">
+                <div class="col-sm-6 col-lg-6" style="padding: 20px; background: rgba(255, 255, 255, 0.6);" data-zanim-xs='{"delay":0.4}'>
                     <div class="overflow-hidden">
                         <h1 class="fs-4 fs-md-5" data-zanim-xs='{"delay":0.5}'>Dana Abadi UNIDAYAN</h1>
                     </div>

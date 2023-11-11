@@ -39,6 +39,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Open+Sans:wght@300;400;600;700;800&amp;display=swap"
         rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 
     @stack('addon-style')
 </head>
@@ -90,12 +92,37 @@
     <script src="{{ asset('web-assets/vendors/gsap/gsap.js') }}"></script>
     <script src="{{ asset('web-assets/vendors/gsap/customEase.js') }}"></script>
     <script src="{{ asset('web-assets/assets/js/theme.js') }}"></script>
-    <script
-        src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
 
     @stack('addon-script')
+
+    @if ($message = Session::get('success'))
+        <script type="text/javascript">
+            $(document).ready(function() {
+                Swal.fire({
+                    title: "Sukses!",
+                    html: "{{ $message }}",
+                    buttonsStyling: false,
+                    confirmButtonClass: "btn btn-success",
+                    icon: "success"
+                });
+            })
+        </script>
+    @elseif($message = Session::get('failed'))
+        <script type="text/javascript">
+            $(document).ready(function() {
+                Swal.fire({
+                    title: "Gagal!",
+                    html: "{{ $message }}",
+                    buttonsStyling: false,
+                    confirmButtonClass: "btn btn-danger",
+                    icon: "error"
+                });
+            })
+        </script>
+    @endif
 </body>
 
 

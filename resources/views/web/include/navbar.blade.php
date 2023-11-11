@@ -21,7 +21,7 @@
 						href="{{ route('web.news') }}" role="button">Berita</a>
 					</li>
 				</ul>
-				<a class="btn btn-secondary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0"
+				<a class="btn btn-secondary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-3 my-3 my-lg-0"
 					href="{{ route('web.how-to-donate') }}">Cara Donasi
 				</a>
 				<a class="btn btn-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-3 my-3 my-lg-0"

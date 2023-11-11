@@ -24,7 +24,6 @@ return new class extends Migration
             $table->foreignIdFor(Faculty::class)->nullable()->constrained()->default(null);
             $table->foreignIdFor(WorkUnit::class)->nullable()->constrained()->default(null);
             $table->foreignIdFor(Allotment::class)->nullable()->constrained()->default(null);
-            $table->longText('address');
             $table->longText('message')->nullable();
             $table->timestamps();
         });

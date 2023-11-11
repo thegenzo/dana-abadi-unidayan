@@ -12,14 +12,19 @@ class Donation extends Model
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'city',
         'status',
         'faculty_id',
         'work_unit_id',
         'allotment_id',
-        'address',
-        'donation_target',
         'message'
     ];
+
+    public function donation_nominal()
+    {
+        return $this->hasMany(DonationNominal::class);
+    }
 
     public function faculty()
     {

@@ -33,6 +33,7 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/berita/{id}', 'news_detail')->name('web.news-detail');
     Route::get('/cara-donasi', 'how_to_donate')->name('web.how-to-donate');
     Route::get('/donasi', 'donate')->name('web.donate');
+    Route::post('/donasi', 'donation')->name('web.donation');
 });
 
 Route::middleware('auth')->group(function () {
