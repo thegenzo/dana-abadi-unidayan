@@ -111,6 +111,17 @@
                         <span class="hide-menu">Berita</span>
                     </a>
                 </li>
+                <div class="unlimited-access hide-menu bg-light-primary position-relative my-7 rounded">
+                    <div class="d-flex">
+                        <div class="unlimited-access-title">
+                            <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Halaman Utama</h6>
+                            <a href="{{ route('web.home') }}" class="btn btn-primary fs-2 fw-semibold lh-sm">Kembali</a>
+                        </div>
+                        <div class="unlimited-access-img">
+                            <img src="{{ asset('panel-assets/dist/images/backgrounds/rocket.png') }}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
                 {{-- <li class="sidebar-item {{ Route::is('admin-panel.criteria.*') ? 'selected' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin-panel.criteria.index') }}" aria-expanded="false">
                         <span>
