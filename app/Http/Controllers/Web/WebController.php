@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Donation;
+use App\Models\DonationNominal;
 use App\Models\News;
 use App\Models\Page;
 use Illuminate\Http\Request;
@@ -13,7 +14,10 @@ class WebController extends Controller
 {
     public function index()
     {
-        return view("web.pages.home");
+        // Donation total
+        $donationTotal = DonationNominal::where('status', 'success')->sum('amount');
+
+        return view("web.pages.home", compact('donationTotal'));
     }
 
     public function news()

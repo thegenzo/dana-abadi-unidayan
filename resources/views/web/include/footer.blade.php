@@ -27,43 +27,22 @@
 			</div>
 			<div class="col-lg-6 mt-4 mt-lg-0">
 				<div class="row">
-					<div class="col-6 col-lg-4 text-white ms-lg-auto">
-						<ul class="list-unstyled">
-							<li class="mb-3"><a class="text-white"
-									href="https://prium.github.io/elixir/v3.0.0/contact.html">Contact Us</a></li>
-							<li class="mb-3"><a class="text-white"
-									href="https://prium.github.io/elixir/v3.0.0/#!">FAQ</a></li>
-							<li class="mb-3"><a class="text-white"
-									href="https://prium.github.io/elixir/v3.0.0/#!">Privacy Policy</a></li>
-							<li class="mb-3"><a class="text-white"
-									href="https://prium.github.io/elixir/v3.0.0/#!">Terms of Use</a></li>
-							<li class="mb-3"><a class="text-white"
-									href="https://prium.github.io/elixir/v3.0.0/#!">Global Office</a></li>
-							<li class="mb-3"><a class="text-white"
-									href="https://prium.github.io/elixir/v3.0.0/#!">Local Office</a></li>
-						</ul>
-					</div>
-					<div class="col-6 col-sm-5 ms-sm-auto">
+					<div class="col-12 col-sm-12 ms-sm-auto">
 						<ul class="list-unstyled">
 							<li class="mb-3"><a class="text-decoration-none d-flex align-items-center"
-									href="#!"> <span class="brand-icon me-3"><span
-											class="fab fa-linkedin-in"></span></span>
-									<h5 class="fs-0 text-white mb-0 d-inline-block">Linkedin</h5>
+									href="https://unidayan.ac.id" target="_blank"> <span class="brand-icon me-3"><span
+											class="fas fa-globe"></span></span>
+									<h5 class="fs-0 text-white mb-0 d-inline-block">Website Resmi UNIDAYAN</h5>
 								</a></li>
 							<li class="mb-3"><a class="text-decoration-none d-flex align-items-center"
-									href="#!"> <span class="brand-icon me-3"><span
-											class="fab fa-twitter"></span></span>
-									<h5 class="fs-0 text-white mb-0 d-inline-block">Twitter</h5>
+									href="https://www.instagram.com/unidayan.info_/" target="_blank"> <span class="brand-icon me-3"><span
+											class="fab fa-instagram"></span></span>
+									<h5 class="fs-0 text-white mb-0 d-inline-block">Instagram</h5>
 								</a></li>
 							<li class="mb-3"><a class="text-decoration-none d-flex align-items-center"
-									href="#!"> <span class="brand-icon me-3"><span
+									href="https://www.facebook.com/universitasdayanuikhsanuddin.baubau" target="_blank"> <span class="brand-icon me-3"><span
 											class="fab fa-facebook-f"></span></span>
 									<h5 class="fs-0 text-white mb-0 d-inline-block">Facebook</h5>
-								</a></li>
-							<li class="mb-3"><a class="text-decoration-none d-flex align-items-center"
-									href="#!"> <span class="brand-icon me-3"><span
-											class="fab fa-google-plus-g"></span></span>
-									<h5 class="fs-0 text-white mb-0 d-inline-block">Google+</h5>
 								</a></li>
 						</ul>
 					</div>
@@ -78,17 +57,27 @@
 	<div class="container">
 		<div class="row align-items-center opacity-85 text-white">
 			<div class="col-sm-3 text-sm-start">
-				<a href="#">
-					<img src="{{ asset('logo-primary.png') }}" alt="logo" />
-				</a>
+				<div style="background-color: #ffffff; padding: 5px; border-radius: 5px;" class="text-center">
+					<a href="#">
+						<img src="{{ asset('logo-primary.png') }}" class="text-center" alt="logo" />
+					</a>
+				</div>
 			</div>
 			<div class="col-sm-6 mt-3 mt-sm-0">
-				<p class="lh-lg mb-0 fw-semi-bold">&copy; Copyright 2023</p>
+				<p class="lh-lg mb-0 fw-semi-bold">&copy; Copyright <span id="year"></span></p>
 			</div>
 			<div class="col text-sm-end mt-3 mt-sm-0">
-				<span class="fw-semi-bold">Designed by </span>
+				<span class="fw-semi-bold">Developed by </span>
 				<a class="text-white" href="https://www.instagram.com/dicky.agusputra" target="_blank">Dicky Agusputra</a>
 			</div>
 		</div>
 	</div>
 </footer>
+
+@push('addon-script')
+	<script>
+		const d = new Date();
+		let year = d.getFullYear();
+		$('#year').html(year);
+	</script>
+@endpush
