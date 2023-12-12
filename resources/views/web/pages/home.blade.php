@@ -79,7 +79,7 @@
                         data-zanim-trigger="scroll" />
                 </div>
             </div>
-            <div class="row mt-4 mt-md-5 justify-content-center">
+            <div class="row mt-4 mt-md-5">
                 <div class="col-sm-6 col-lg-3 mt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
                     <div class="ring-icon mx-auto" data-zanim-xs='{"delay":0}'><span class="far fa-chart-bar"></span></div>
                     <h5 class="mt-4" data-zanim-xs='{"delay":0.1}'>Pendapatan Alternatif</h5>
@@ -94,7 +94,7 @@
                     <p class="mb-0 mt-3 px-3" data-zanim-xs='{"delay":0.2}'>Baik untuk mahasiswa berprestasi maupun bagi
                         yang kurang mampu</p>
                 </div>
-                {{-- <div class="col-sm-6 col-lg-3 mt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                <div class="col-sm-6 col-lg-3 mt-4" data-zanim-timeline="{}" data-zanim-trigger="scroll">
                     <div class="ring-icon mx-auto" data-zanim-xs='{"delay":0}'><i class="fas fa-building"></i></div>
                     <h5 class="mt-4" data-zanim-xs='{"delay":0.1}'>Pembangunan</h5>
                     <p class="mb-0 mt-3 px-3" data-zanim-xs='{"delay":0.2}'>
@@ -107,7 +107,7 @@
                     <p class="mb-0 mt-3 px-3" data-zanim-xs='{"delay":0.2}'>
                         Melakukan riset yang bermanfaat bagi masyarakat
                     </p>
-                </div> --}}
+                </div>
             </div>
         </div><!-- end of .container-->
     </section><!-- <section> close ============================-->
