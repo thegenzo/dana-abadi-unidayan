@@ -13,7 +13,8 @@ class DonationNominal extends Model
         'donation_id',
         'amount',
         'method',
-        'status'
+        'status',
+        'image',
     ];
 
     public function donation()

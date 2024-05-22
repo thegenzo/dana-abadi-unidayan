@@ -14,9 +14,9 @@
 					<li class="nav-item dropdown"><a class="nav-link"
 						href="{{ route('web.endowment') }}" role="button">Dana Abadi</a>
 					</li>
-					<li class="nav-item dropdown"><a class="nav-link"
+					{{-- <li class="nav-item dropdown"><a class="nav-link"
 						href="#" role="button">Laporan Keuangan</a>
-					</li>
+					</li> --}}
 					<li class="nav-item dropdown"><a class="nav-link"
 						href="{{ route('web.news') }}" role="button">Berita</a>
 					</li>

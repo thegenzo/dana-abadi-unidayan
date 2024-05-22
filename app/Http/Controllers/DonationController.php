@@ -7,59 +7,28 @@ use Illuminate\Http\Request;
 
 class DonationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $donations = Donation::latest()->get();
+
+        return view('admin-panel.pages.donation.index', compact('donations'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show($id)
     {
-        //
+        $donation = Donation::find($id);
+
+        return view('admin-panel.pages.donation.show', compact('donation'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function confirmDonation($id)
     {
-        //
-    }
+        $donation = Donation::find($id);
+        $donation->donation_nominal()->update([
+            'status' => 'success'
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Donation $donation)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Donation $donation)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Donation $donation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Donation $donation)
-    {
-        //
+        return redirect()->route('admin-panel.donations.index')->with('success', 'Donasi dikonfirmasi');
     }
 }

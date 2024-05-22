@@ -18,12 +18,12 @@ class Donation extends Model
         'faculty_id',
         'work_unit_id',
         'allotment_id',
-        'message'
+        'message',
     ];
 
     public function donation_nominal()
     {
-        return $this->hasMany(DonationNominal::class);
+        return $this->hasOne(DonationNominal::class);
     }
 
     public function faculty()
@@ -39,5 +39,19 @@ class Donation extends Model
     public function allotment()
     {
         return $this->belongsTo(Allotment::class);
+    }
+
+    public function getDonationPlaced()
+    {
+        $value = '';
+        if($this->faculty_id != '') {
+            $value = $this->faculty->faculty_name;
+        } else if ($this->work_unit_id != '') {
+            $value = $this->work_unit->work_unit_name;
+        } else {
+            $value = $this->allotment->allotment_name;
+        }
+
+        return $value;
     }
 }

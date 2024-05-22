@@ -103,6 +103,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="sidebar-item {{ Route::is('admin-panel.donations.*') ? 'selected' : '' }}">
+                    <a class="sidebar-link" href="{{ route('admin-panel.donations.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-moneybag"></i>
+                        </span>
+                        <span class="hide-menu">Donasi</span>
+                    </a>
+                </li>
                 <li class="sidebar-item {{ Route::is('admin-panel.news.*') ? 'selected' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin-panel.news.index') }}" aria-expanded="false">
                         <span>

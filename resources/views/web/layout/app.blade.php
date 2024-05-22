@@ -110,6 +110,18 @@
                 });
             })
         </script>
+    @elseif($message = Session::get('warning'))
+        <script type="text/javascript">
+            $(document).ready(function() {
+                Swal.fire({
+                    title: "Peringatan",
+                    html: "{{ $message }}",
+                    buttonsStyling: false,
+                    confirmButtonClass: "btn btn-danger",
+                    icon: "warning"
+                });
+            })
+        </script>
     @elseif($message = Session::get('failed'))
         <script type="text/javascript">
             $(document).ready(function() {

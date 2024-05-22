@@ -8,7 +8,10 @@ use App\Models\DonationNominal;
 use App\Models\News;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class WebController extends Controller
 {
@@ -84,16 +87,54 @@ class WebController extends Controller
 
         $data = $request->except('amount');
 
-        // Insert donator profile data
-        $donation = Donation::create($data);
+        DB::beginTransaction();
+        try {
+            // Insert donator profile data
+            $donation = Donation::create($data);
 
-        // Insert donation nominals
-        $donation->donation_nominal()->create([
-            'amount' => $request->amount,
-            'method' => 'online_payment',
-            'status' => 'pending'
+            // Insert donation nominals
+            $donation->donation_nominal()->create([
+                'amount' => $request->amount,
+                'method' => 'online_payment',
+                'status' => 'pending'
+            ]);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()->back()->with('failed', 'Ada yang salah, silahkan coba lagi');
+        }
+
+
+        return redirect()->route('web.donation-success', Crypt::encrypt($donation->id));
+    }
+
+    public function donationSuccess($id)
+    {
+        $params = Crypt::decrypt($id);
+        $donation = Donation::find($params);
+
+        return view('web.pages.donation-success', compact('donation'));
+    }
+
+    public function uploadDonationReceipt(Request $request, $id)
+    {
+        $donation = Donation::find($id);
+        $data = $request->all();
+        if($request->has('image')) {
+            $image = $request->file('image');
+            $filename = time(). '.jpg';
+            $upload_filepath = 'public/donations';
+            $path = $image->storeAs($upload_filepath, $filename);
+            unset($data['image']);
+            $data['image'] = Storage::url($path);
+        }
+
+        $donation->donation_nominal()->update([
+            'image' => $data['image']
         ]);
 
-        return redirect()->back()->with('success', 'Donasi berhasil');
+        return redirect()->route('web.home')->with('success', 'Terima kasih atas donasi anda');
     }
 }

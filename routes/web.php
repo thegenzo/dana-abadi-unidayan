@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AllotmentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
@@ -34,6 +35,8 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/cara-donasi', 'how_to_donate')->name('web.how-to-donate');
     Route::get('/donasi', 'donate')->name('web.donate');
     Route::post('/donasi', 'donation')->name('web.donation');
+    Route::get('/donasi/success/{id}', 'donationSuccess')->name('web.donation-success')->middleware('check.donation.status');
+    Route::put('/donasi/success/{id}', 'uploadDonationReceipt')->name('web.upload-donation-receipt');
 });
 
 Route::middleware('auth')->group(function () {
@@ -59,10 +62,13 @@ Route::middleware('auth')->group(function () {
             Route::get('/how-to-donate', 'how_to_donate')->name('admin-panel.how-to-donate');
             Route::put('/page/update/{id}', 'update')->name('admin-panel.page.update');
         });
+
+        Route::controller(DonationController::class)->group(function () {
+            Route::get('/donations', 'index')->name('admin-panel.donations.index');
+            Route::get('/donations/{id}', 'show')->name('admin-panel.donations.show');
+            Route::put('/donations/{id}/confirm', 'confirmDonation')->name('admin-panel.donations.confirm-donation');
+        });
     });
-
-
-
 });
 
 
