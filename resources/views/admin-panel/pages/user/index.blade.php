@@ -70,7 +70,7 @@
 													<span class="badge bg-{{ $label[$user->level] }}">{{ $auth[$user->level] }}</span>
 												</td>
 												<td class="text-center">
-													<img src="{{ $user->avatar }}" alt="" width="100px">
+													<img src="{{ asset($user->avatar) }}" alt="" width="100px">
 												</td>
 												<td>{{ $user->email }}</td>
 												<td class="text-center">

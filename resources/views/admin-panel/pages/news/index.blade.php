@@ -60,7 +60,7 @@
 											<tr>
 												<td class="text-center">{{ $loop->iteration }}</td>
 												<td class="text-center">
-													<img src="{{ asset($data->cover_image)}}" width="300px" alt="">
+													<img src="{{ asset($data->cover_image) }}" width="300px" alt="">
 												</td>
 												<td>{{ $data->title }}</td>
 												<td class="text-center">

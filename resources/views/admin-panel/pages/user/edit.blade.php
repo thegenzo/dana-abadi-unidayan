@@ -58,7 +58,7 @@
                             @csrf
 							@method('PUT')
                             <div class="d-flex justify-content-center">
-                                <img src="{{ $user->avatar }}" class="img-fluid"
+                                <img src="{{ asset($user->avatar) }}" class="img-fluid"
                                     style="max-height:400px;" id="avatar_image_preview" alt="Avatar">
                             </div>
                             <div class="form-group mb-3">
