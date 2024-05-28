@@ -19,11 +19,13 @@
 									<th>A/N</th>
 								</thead>
 								<tbody>
-									<tr>
-										<td>BSI</td>
-										<td>1234567890</td>
-										<td>Universitas Dayanu Ikhsanuddin</td>
+                                    @foreach (\App\Models\Bank::all() as $bank)
+                                    <tr>
+										<td>{{ $bank->bank_name }}</td>
+										<td>{{ $bank->account_number }}</td>
+										<td>{{ $bank->account_name }}</td>
 									</tr>
+                                    @endforeach
 								</tbody>
 							</table>
 						</div>
@@ -45,6 +47,9 @@
 							<div class="form-group mt-3">
 								<label for="image">Bukti Transfer <span class="text-danger">*</span></label>
 								<input type="file" name="image" id="image" class="form-control">
+                                @if ($errors->has('image'))
+                                    <span class="text-danger">{{ $errors->first('image') }}</span>
+                                @endif
 							</div>
 							<div class="d-flex justify-content-center mt-3">
 								<img src="#" class="img-fluid" style="max-height:300px;" id="receipt_image_preview" alt="Receipt">

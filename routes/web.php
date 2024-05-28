@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllotmentController;
+use App\Http\Controllers\BankController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FacultyController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Web\WebController;
 use App\Http\Controllers\WorkUnitController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,9 +54,10 @@ Route::middleware('auth')->group(function () {
             Route::resource('user', UserController::class, ['as' => 'admin-panel']);
         });
 
-        Route::resource('faculties', FacultyController::class, ['as'=> 'admin-panel']);
-        Route::resource('work-units', WorkUnitController::class, ['as'=> 'admin-panel']);
-        Route::resource('allotments', AllotmentController::class, ['as' => 'admin-panel']);
+        // Route::resource('faculties', FacultyController::class, ['as'=> 'admin-panel']);
+        // Route::resource('work-units', WorkUnitController::class, ['as'=> 'admin-panel']);
+        // Route::resource('allotments', AllotmentController::class, ['as' => 'admin-panel']);
+        Route::resource('banks', BankController::class, ['as' => 'admin-panel']);
         Route::resource('news', NewsController::class, ['as' => 'admin-panel']);
 
         Route::controller(PageController::class)->group(function () {
@@ -69,6 +72,11 @@ Route::middleware('auth')->group(function () {
             Route::put('/donations/{id}/confirm', 'confirmDonation')->name('admin-panel.donations.confirm-donation');
         });
     });
+});
+
+// Dev Routes
+Route::get('/run-artisan-migrate', function () {
+    Artisan::call('migrate');
 });
 
 

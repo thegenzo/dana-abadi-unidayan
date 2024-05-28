@@ -120,6 +120,22 @@ class WebController extends Controller
 
     public function uploadDonationReceipt(Request $request, $id)
     {
+        $rules = [
+            'image'    => 'required|image|mimes:jpeg,png,jpg',
+        ];
+
+        $messages = [
+            'image.required'       => 'Bukti transfer wajib diupload',
+            'image.image'          => 'Bukti transfer harus berupa gambar',
+            'image.mimes'          => 'Bukti transfer harus berformat gambar (jpeg, png atau jpg)',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
+
         $donation = Donation::find($id);
         $data = $request->all();
         if($request->has('image')) {

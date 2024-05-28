@@ -43,7 +43,7 @@
                         </a>
                     </li>
                 @endif
-                <li class="sidebar-item {{ Route::is('admin-panel.faculties.*') || Route::is('admin-panel.work-unit.*') || Route::is('admin-panel.allotments.*') ? 'selected' : '' }}">
+                {{-- <li class="sidebar-item {{ Route::is('admin-panel.faculties.*') || Route::is('admin-panel.work-unit.*') || Route::is('admin-panel.allotments.*') ? 'selected' : '' }}">
                     <a class="sidebar-link has-arrow {{ Route::is('admin-panel.faculties.*') || Route::is('admin-panel.work-unit.*') || Route::is('admin-panel.allotments.*') ? 'active' : '' }}" href="#" aria-expanded="false">
                         <span class="d-flex">
                             <i class="ti ti-archive-filled"></i>
@@ -76,7 +76,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="sidebar-item {{ Route::is('admin-panel.endowment') || Route::is('admin-panel.how-to-donate') ? 'selected' : '' }}">
                     <a class="sidebar-link has-arrow {{ Route::is('admin-panel.endowment') || Route::is('admin-panel.how-to-donate') ? 'active' : '' }}" href="#" aria-expanded="false">
                         <span class="d-flex">
@@ -102,6 +102,14 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="sidebar-item {{ Route::is('admin-panel.banks.*') ? 'selected' : '' }}">
+                    <a class="sidebar-link" href="{{ route('admin-panel.banks.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-building-bank"></i>
+                        </span>
+                        <span class="hide-menu">Bank</span>
+                    </a>
                 </li>
                 <li class="sidebar-item {{ Route::is('admin-panel.donations.*') ? 'selected' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin-panel.donations.index') }}" aria-expanded="false">

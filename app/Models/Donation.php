@@ -15,9 +15,9 @@ class Donation extends Model
         'phone',
         'city',
         'status',
-        'faculty_id',
-        'work_unit_id',
-        'allotment_id',
+        // 'faculty_id',
+        // 'work_unit_id',
+        // 'allotment_id',
         'message',
     ];
 
@@ -26,30 +26,45 @@ class Donation extends Model
         return $this->hasOne(DonationNominal::class);
     }
 
-    public function faculty()
-    {
-        return $this->belongsTo(Faculty::class);
-    }
+    // public function faculty()
+    // {
+    //     return $this->belongsTo(Faculty::class);
+    // }
 
-    public function work_unit()
-    {
-        return $this->belongsTo(WorkUnit::class);
-    }
+    // public function work_unit()
+    // {
+    //     return $this->belongsTo(WorkUnit::class);
+    // }
 
-    public function allotment()
-    {
-        return $this->belongsTo(Allotment::class);
-    }
+    // public function allotment()
+    // {
+    //     return $this->belongsTo(Allotment::class);
+    // }
 
-    public function getDonationPlaced()
+    // public function getDonationPlaced()
+    // {
+    //     $value = '';
+    //     if($this->faculty_id != '') {
+    //         $value = $this->faculty->faculty_name;
+    //     } else if ($this->work_unit_id != '') {
+    //         $value = $this->work_unit->work_unit_name;
+    //     } else {
+    //         $value = $this->allotment->allotment_name;
+    //     }
+
+    //     return $value;
+    // }
+    public function getStatus()
     {
         $value = '';
-        if($this->faculty_id != '') {
-            $value = $this->faculty->faculty_name;
-        } else if ($this->work_unit_id != '') {
-            $value = $this->work_unit->work_unit_name;
+        if($this->status == 'student') {
+            $value = 'Mahasiswa/i';
+        } else if($this->status == 'alumni') {
+            $value = 'Alumni';
+        } else if($this->status == 'lecturer') {
+            $value = 'Dosen';   
         } else {
-            $value = $this->allotment->allotment_name;
+            $value = 'Masyarakat Umum';
         }
 
         return $value;

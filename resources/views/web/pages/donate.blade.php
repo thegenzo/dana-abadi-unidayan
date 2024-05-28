@@ -231,7 +231,7 @@
                                     <span class="text-danger">{{ $errors->first('status') }}</span>
                                 @endif
                             </div>
-							<div class="form-group mt-3" id="faculty">
+							{{-- <div class="form-group mt-3" id="faculty">
                                 <label for="name">Fakultas <span class="text-danger">*</span></label>
                                 <select name="faculty_id" class="form-select">
                                     <option value="" selected hidden>--- Pilih Fakultas ---</option>
@@ -257,7 +257,7 @@
                                     <option value="{{ $allotment->id }}" {{ old('allotment_id') == $allotment->id ? 'selected' : '' }}>{{ $allotment->allotment_name }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
 							<div class="form-group mt-3">
 								<label for="message">Pesan (opsional)</label>
 								<textarea name="message" id="message" cols="10" rows="10" class="form-control">{{ old('message') }}</textarea>

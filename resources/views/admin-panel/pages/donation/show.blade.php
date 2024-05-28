@@ -61,12 +61,12 @@
 						</div>
 						<div class="form-group mb-3">
 							<label for="">Status</label>
-							<input type="text" class="form-control" value="{{ $donation->status }}" disabled>
+							<input type="text" class="form-control" value="{{ $donation->getStatus() }}" disabled>
 						</div>
-						<div class="form-group mb-3">
+						{{-- <div class="form-group mb-3">
 							<label for="">Penempatan Donasi</label>
 							<input type="text" class="form-control" value="{{ $donation->getDonationPlaced() }}" disabled>
-						</div>
+						</div> --}}
 						<div class="form-group mb-3">
 							<label for="">Pesan</label>
 							<textarea name="" id="" cols="30" rows="10" class="form-control" disabled>{{ $donation->message }}</textarea>
@@ -82,7 +82,6 @@
 							<img src="{{ $donation->donation_nominal->image }}" alt="" style="max-height:400px; width: 400px">
 						</div>
 						<div class="mt-2">
-
 							<h6>Metode: {{ $donation->donation_nominal->method }}</h6>
 							<h6>Nominal: Rp. {{ number_format($donation->donation_nominal->amount) }}</h6>
 							<h6>Status: {{ $donation->donation_nominal->status }}</h6>
