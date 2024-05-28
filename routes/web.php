@@ -78,6 +78,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/run-artisan-migrate', function () {
     Artisan::call('migrate');
 });
+Route::get('/run-storage-link', function () {
+    Artisan::call('storage:link');
+});
 
 
 require __DIR__.'/auth.php';
