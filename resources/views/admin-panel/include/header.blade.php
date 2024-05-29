@@ -17,9 +17,9 @@ $auth = [
         </ul>
         <div class="d-block d-lg-none">
             <img src="{{ asset('logo-primary.png') }}"
-                class="dark-logo rounded" width="50" alt="" />
+                class="dark-logo rounded" alt="" />
             <img src="{{ asset('logo-primary.png') }}"
-                class="light-logo rounded" width="50" alt="" />
+                class="light-logo rounded" alt="" />
         </div>
         <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
