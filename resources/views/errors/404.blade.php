@@ -5,7 +5,7 @@
 
 <head>
     <!--  Title -->
-    <title>Halaman Tidak Ditemukan &dash; SP2B Baubau</title>
+    <title>Halaman Tidak Ditemukan &dash; Dana Abadi UNIDAYAN</title>
     <!--  Required Meta Tag -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--  Favicon -->
     <link rel="shortcut icon" type="image/png"
-        href="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico" />
+        href="{{ asset('favicon.ico') }}" />
     <!-- Core Css -->
     @include('admin-panel.include.style')
 </head>
