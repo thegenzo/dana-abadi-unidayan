@@ -24,6 +24,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('web-assets/assets/img/favicons/favicon-16x16.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <meta name="theme-color" content="#ffffff">
+    <meta name="author" content="Dana Abadi UNIDAYAN">
+    <meta name="description" content="Universitas Dayanu Ikhsanuddin merupakan universitas swasta pertama di Pulau Buton, terletak di Kota Baubau, Kabupaten Buton yang didirikan pada tahun 1982.">
+    <meta property="og:url" content="{{ url()->full() }}" />
+    <meta property="og:description" content="Universitas Dayanu Ikhsanuddin merupakan universitas swasta pertama di Pulau Buton, terletak di Kota Baubau, Kabupaten Buton yang didirikan pada tahun 1982." />
     <script src="{{ asset('web-assets/vendors/overlayscrollbars/OverlayScrollbars.min.js') }}"></script>
 
     <!-- ===============================================-->
