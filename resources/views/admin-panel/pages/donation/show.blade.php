@@ -79,7 +79,7 @@
 					<div class="card-body">
 						<h3>Bukti Transfer</h3>
 						<div class="d-flex justify-content-center">
-							<img src="{{ $donation->donation_nominal->image }}" alt="" style="max-height:400px; width: 400px">
+							<img src="{{ asset($donation->donation_nominal->image) }}" alt="" style="max-height:400px; width: 400px">
 						</div>
 						<div class="mt-2">
 							<h6>Metode: {{ $donation->donation_nominal->method }}</h6>
