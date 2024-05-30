@@ -43,12 +43,12 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-12">
-                <h3 class="text-center">Grafik Barang Bukti berdasarkan status</h3>
-                <canvas id="myChart"></canvas>
+                <h3 class="text-center">Grafik total sumbangan ({{ $currentYear }})</h3>
+                <canvas id="donationsChart" width="400" height="100"></canvas>
             </div>
-        </div> --}}
+        </div>
     </div>
 @endsection
 
@@ -56,5 +56,37 @@
     <!--  current page js files -->
     <script src="{{ asset('panel-assets/dist/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('panel-assets/dist/js/dashboard.js') }}"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ctx = document.getElementById('donationsChart').getContext('2d');
+            var monthlyDonations = @json(array_values($monthlyDonations));
+            
+            var donationsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                    datasets: [{
+                        label: 'Total Donasi',
+                        data: monthlyDonations,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: false,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 @endpush

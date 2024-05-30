@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DonationNominal;
 use App\Models\News;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -17,6 +20,24 @@ class DashboardController extends Controller
         $user = User::where('level','user')->count();
         $news = News::count();
 
-        return view('admin-panel.pages.dashboard', compact('admin', 'user', 'news'));
+        // ChartJS query for total amount of donations per month in this current year
+        $currentYear = Carbon::now()->year;
+
+        $donations = DonationNominal::select(
+                DB::raw('MONTH(created_at) as month'),
+                DB::raw('SUM(amount) as total')
+            )
+            ->whereYear('created_at', $currentYear)
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->pluck('total', 'month');
+    
+        // Ensure all months are represented
+        $monthlyDonations = array_fill(1, 12, 0);
+    
+        foreach ($donations as $month => $total) {
+            $monthlyDonations[$month] = $total;
+        }
+
+        return view('admin-panel.pages.dashboard', compact('admin', 'user', 'news', 'monthlyDonations', 'currentYear'));
     }
 }
