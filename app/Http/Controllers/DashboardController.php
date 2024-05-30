@@ -33,6 +33,7 @@ class DashboardController extends Controller
                 DB::raw('SUM(amount) as total')
             )
             ->whereYear('created_at', $year)
+            ->where('status', 'success')
             ->groupBy(DB::raw('MONTH(created_at)'))
             ->pluck('total', 'month');
 
