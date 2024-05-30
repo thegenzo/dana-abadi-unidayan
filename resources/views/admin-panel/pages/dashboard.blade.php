@@ -45,7 +45,16 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center">Grafik total sumbangan ({{ $currentYear }})</h3>
+                <h3 class="text-center">Grafik total sumbangan ({{ $year }})</h3>
+                <form method="GET" action="{{ route('admin-panel.dashboard') }}">
+                    <label for="year">Pilih Tahun:</label>
+                    <select id="year" name="year">
+                        @for ($i = date('Y'); $i >= 2023; $i--)
+                            <option value="{{ $i }}" {{ request('year') == $i ? 'selected' : '' }}>{{ $i }}</option>
+                        @endfor
+                    </select>
+                    <button type="submit">Submit</button>
+                </form>
                 <canvas id="donationsChart" width="400" height="100"></canvas>
             </div>
         </div>
@@ -65,9 +74,9 @@
             var donationsChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                     datasets: [{
-                        label: 'Total Donasi',
+                        label: 'Donations',
                         data: monthlyDonations,
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',

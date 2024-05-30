@@ -48,7 +48,8 @@ Route::middleware('auth')->group(function () {
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-        Route::get('/dashboard', DashboardController::class)->name('admin-panel.dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin-panel.dashboard');
+        Route::get('/get-monthly-donations', [DashboardController::class, 'getMonthlyDonations'])->name('admin-panel.get-monthly-donations');
 
         Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
             Route::resource('user', UserController::class, ['as' => 'admin-panel']);
