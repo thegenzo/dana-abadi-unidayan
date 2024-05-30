@@ -74,9 +74,9 @@
             var donationsChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'December'],
                     datasets: [{
-                        label: 'Donations',
+                        label: 'Total Donasi',
                         data: monthlyDonations,
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
