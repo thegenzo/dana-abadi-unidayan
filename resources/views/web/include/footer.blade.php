@@ -68,7 +68,7 @@
 			</div>
 			<div class="col text-sm-end mt-3 mt-sm-0">
 				<span class="fw-semi-bold">Developed by </span>
-				<a class="text-white" href="https://www.instagram.com/dicky.agusputra" target="_blank">Dicky Agusputra</a>
+				<a class="text-white" href="#">UPT TI</a>
 			</div>
 		</div>
 	</div>
